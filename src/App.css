@@ -1,6 +1,65 @@
-.startSimulationButton {
-	height: 60px;
-	width: 160px;
+.mainContainer {
+	width: 100vw;
+	margin: 0 auto;
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	background-color: #1e1e2c;
+	color: rgb(246, 231, 231);
+	transition: 1s transform ease-in-out;
+}
+
+h1 {
 	text-align: center;
-	background-color: red;
+	padding: 2rem;
+}
+
+.textContainer {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+input {
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+.startSimulationButton {
+	width: 180px;
+	height: 80px;
+	background: #111;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	border-radius: 15px;
+	transition: all 0.5s ease;
+	color: white;
+	border: 1px solid white;
+}
+
+.startSimulationButton:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.startSimulationButton:before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: linear-gradient(0deg, transparent, transparent 30%, rgba(0, 255, 255, 0.3));
+	transform: rotate(-45deg);
+	transition: all 0.5s ease;
+	opacity: 0;
+}
+
+.startSimulationButton:hover::before {
+	opacity: 1;
+	transform: rotate(-45deg) translateY(100%);
 }

@@ -4,7 +4,7 @@ import { runSimulation } from './EvacuateExtended'
 import ResultsDisplay from './ResultsDisplay'
 
 function App() {
-	const [patientsNumber, setPatientsNumber] = useState(0)
+	const [patientsNumber, setPatientsNumber] = useState('')
 	const [simulationResults, setSimulationResults] = useState('')
 	const id = useId()
 
@@ -15,16 +15,23 @@ function App() {
 	}
 
 	return (
-		<>
-			<div>
-				<label htmlFor={id}>Please specify:</label>
-				<input id={id} value={patientsNumber} onInput={e => setPatientsNumber(e.target.value)} />
+		<div className='mainContainer'>
+			<h1>Evacuation Simulation</h1>
+			<div className='textContainer'>
+				<label htmlFor={id}>Please specify number of patients:</label>
+				<input
+					id={id}
+					value={patientsNumber}
+					placeholder='input number'
+					onInput={e => setPatientsNumber(e.target.value)}
+				/>
 				<button onClick={() => handleSimulation(patientsNumber)} className='startSimulationButton'>
-					Start simulation
+					Start
 				</button>
-				<ResultsDisplay results={simulationResults} />
 			</div>
-		</>
+
+			<ResultsDisplay results={simulationResults} />
+		</div>
 	)
 }
 

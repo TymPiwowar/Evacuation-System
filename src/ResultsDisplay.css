@@ -1,7 +1,28 @@
 .tableConatiner {
 	width: 100%;
 	display: flex;
-
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding: 0 auto;
+}
+
+.resultsContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	border: 1px solid white;
+}
+
+tr {
+	height: 40px;
+}
+
+tr:nth-child(even) {
+	background-color: #282838;
 }

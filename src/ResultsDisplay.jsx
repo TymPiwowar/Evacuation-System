@@ -7,11 +7,13 @@ const ResultsDisplay = ({ results }) => {
 	}
 
 	const { baselineData, evacSummary, relocSummary, relocLogs } = results
-	const RenderSummaryTable = ({ data }) => {
+
+	const RenderSummaryTable = ({ data, title }) => {
 		if (!data) return null
 
 		return (
 			<div className='tableConatiner'>
+				<h2>{title}</h2>
 				<table>
 					<tbody>
 						{Object.entries(data).map(([key, value]) => {
@@ -23,7 +25,7 @@ const ResultsDisplay = ({ results }) => {
 							}
 							return (
 								<tr key={key}>
-									<th style={{ color: 'red', textAlign: 'center' }}>{key}</th>
+									<th style={{ textAlign: 'left' }}>{key}</th>
 									<td>{displayValue}</td>
 								</tr>
 							)
@@ -34,12 +36,44 @@ const ResultsDisplay = ({ results }) => {
 		)
 	}
 
+	const RenderLogs = ({ logs }) => {
+		if (!logs || logs.length === 0) return <div>Brak logów</div>
+
+		const headers = Object.keys(logs[0])
+
+		return (
+			<div className='tableConatiner'>
+				<h2>Szczegółowe Logi Relokacji ({logs.length} pozycji)</h2>
+				<div style={{ overflowX: 'auto' }}>
+					<table style={{ minWidth: '1000px' }}>
+						<thead>
+							<tr>
+								{headers.map(header => (
+									<th key={header}>{header}</th>
+								))}
+							</tr>
+						</thead>
+						<tbody>
+							{logs.map((log, index) => (
+								<tr key={index}>
+									{headers.map(header => (
+										<td key={header}>{log[header]}</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		)
+	}
+
 	return (
-		<div>
-			<RenderSummaryTable data={baselineData} />
-			<RenderSummaryTable data={evacSummary} />
-			<RenderSummaryTable data={relocSummary} />
-			<RenderSummaryTable data={relocLogs} />
+		<div className='resultsContainer' style={{ gap: '20px' }}>
+			<RenderSummaryTable data={baselineData} title={'podstawowe dane'} />
+			<RenderSummaryTable data={evacSummary} title={'podsumowanie ewakuacji'} />
+			<RenderSummaryTable data={relocSummary} title={'podsumowanie relokacji'} />
+			<RenderLogs logs={relocLogs} title={'logi'} />
 		</div>
 	)
 }
