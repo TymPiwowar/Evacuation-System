@@ -50,7 +50,6 @@ export const baselineData = () => ({
 		handlingTime_s: { ambulance: 450, minibus: 600 },
 	},
 
-	// ZAKTUALIZOWANA POJEMNOŚĆ SZPITALI
 	destinationHospitals: [
 		{
 			name: 'Szpital im. Barlickiego',

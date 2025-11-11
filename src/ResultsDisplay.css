@@ -1,16 +1,18 @@
 .tableConatiner {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 0 auto;
+	max-width: 1200px;
 }
 
 .resultsContainer {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20;
+	gap: 20px;
+	width: 90%;
+	margin: 0 auto;
 }
 
 table {
@@ -25,4 +27,18 @@ tr {
 
 tr:nth-child(even) {
 	background-color: #282838;
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #04aa6d;
+	color: white;
+}
+
+td,
+th {
+	border: 1px solid #ddd;
+	padding: 8px;
 }

@@ -38,12 +38,12 @@ input {
 	border-radius: 15px;
 	transition: all 0.5s ease;
 	color: white;
-	border: 1px solid white;
+	border: 1px solid #04aa6d;
 }
 
 .startSimulationButton:hover {
 	transform: scale(1.05);
-	box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+	box-shadow: 0 0 10px #04aa6d;
 }
 
 .startSimulationButton:before {
@@ -53,7 +53,7 @@ input {
 	left: -50%;
 	width: 200%;
 	height: 200%;
-	background: linear-gradient(0deg, transparent, transparent 30%, rgba(0, 255, 255, 0.3));
+	background: linear-gradient(0deg, transparent, transparent 30%, #04aa6d);
 	transform: rotate(-45deg);
 	transition: all 0.5s ease;
 	opacity: 0;
